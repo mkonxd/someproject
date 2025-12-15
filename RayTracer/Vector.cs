@@ -56,7 +56,7 @@ public class Vector(double x, double y, double z)
     /// <returns>
     /// Returns the normalized vector of length 1
     /// </returns>
-    public Vector Normalize()
+    public Vector Normalize() //TODO choose if to return or change itself
     {
         double length = Length();
         return new Vector(X / length, Y / length, Z / length);
@@ -68,14 +68,9 @@ public class Vector(double x, double y, double z)
     /// <returns>
     /// Returns the dot product of the two vectors.
     /// </returns>
-    private double DotProduct(Vector left, Vector right)
+    public double DotProduct(Vector vector)
     {
-        left = left.Normalize(); right = right.Normalize();
-        return  left.X * right.X + left.Y * right.Y + left.Z * right.Z;
+        return  X * vector.X + Y * vector.Y + Z * vector.Z;
     }
-    
-
-    
-    
 
 }

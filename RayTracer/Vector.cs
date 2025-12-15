@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
 namespace RayTracer;
@@ -44,9 +45,9 @@ public class Vector(double x, double y, double z)
     /// <returns>
     /// The Length of the vector
     /// </returns>
-    public static double Length(Vector vector)
+    public double Length()
     {
-        return Math.Sqrt(vector.X * vector.X + vector.Y * vector.Y + vector.Z * vector.Z);
+        return Math.Sqrt(X * X + Y * Y + Z * Z);
     }
 
     /// <summary>
@@ -55,10 +56,10 @@ public class Vector(double x, double y, double z)
     /// <returns>
     /// Returns the normalized vector of length 1
     /// </returns>
-    public static Vector Normalize(Vector vector)
+    public Vector Normalize()
     {
-        double length = Vector.Length(vector);
-        return new Vector(vector.X / length, vector.Y / length, vector.Z / length);
+        double length = Length();
+        return new Vector(X / length, Y / length, Z / length);
     }
 
     /// <summary>
@@ -67,9 +68,9 @@ public class Vector(double x, double y, double z)
     /// <returns>
     /// Returns the dot product of the two vectors.
     /// </returns>
-    private static double DotProduct(Vector left, Vector right)
+    private double DotProduct(Vector left, Vector right)
     {
-        left = Vector.Normalize(left); right = Vector.Normalize(right);
+        left = left.Normalize(); right = right.Normalize();
         return  left.X * right.X + left.Y * right.Y + left.Z * right.Z;
     }
     

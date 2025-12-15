@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RayTracer.Tests/RayTracer.Tests.csproj" />
+  <Project Path="RayTracer/RayTracer.csproj" />
+</Solution>
